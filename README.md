@@ -77,26 +77,16 @@ This dataset is based on [1].
 
 The model input data has the form below. Each row corresponds to one product **profile**, a combination of **attributes**.
 
-'''
+```
 import pandas as pd
 filename = 'data/mobile_services_ranking.csv'
 pd.read_csv(filename)
-'''
+```
 
 
 ## Dummy variables
 
-We now will calculate $X_{ij}^k$ from the definition above, where we recall
-
-$$X_{ij}^k = \left\{ {\begin{array}{*{20}{l}}
-1&{{\text{if product }}i{\text{ has level j on attribute }}k}\\
-0&{{\text{otherwise}}}
-\end{array}} \right.$$
-
-For example for product: 
-
-- $X_{{\text{US Cellular}},{\text{brand}}}^{\text{0}}=1$ since the product profile on row with index $k=1$ has level $i=1={\text{Verizon}}$ on attribute $j=1={\text{brand}}$.
-- $X_{{\text{4G YES}},{\text{service}}}^{\text{8}}=1$ since the product profile on row with index $k=8$ has level $i=0={\text{4G YES}}$ on attribute $j=1={\text{service}}$.
+We now will calculate the components of X from the definition above.
 
 The cell below performs the following steps:
 - The `for` loops over the attributes
@@ -130,10 +120,7 @@ The cell below performs the following steps:
 
 - After the for loop is finished, we have a list of list, each sub-list containing the part-worths of an attribute
 
-import numpy as np
-import pandas as pd
-import statsmodels.api as sm
-
+```
 def lr_params(filename):
     
     df = pd.read_csv(filename)
@@ -195,17 +182,10 @@ def lr_params(filename):
     tup = (lr.summary(),res,dfnew,lst_new)
     
     return tup
-
+    
 tup = lr_params(filename)
-
+```
 ## Results:
-
-print('Summary of statistics:')
-tup[0]
-print('Utilities:')
-tup[1]
-print('Importances:')
-tup[2]
 
 ## References
 
