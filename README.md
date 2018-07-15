@@ -4,10 +4,6 @@
 ![image title](https://img.shields.io/badge/python-v3.6-blue.svg) ![Image title](https://img.shields.io/badge/sklearn-0.19.1-blue.svg) ![Image title](https://img.shields.io/badge/pandas-0.22.0-blue.svg) ![Image title](https://img.shields.io/badge/matplotlib-v2.1.2-blue.svg)
 
 
-
-
-
-
 # Conjoint Analysis
 
 From [Wiki](https://en.wikipedia.org/wiki/Conjoint_analysis):
@@ -81,9 +77,12 @@ This dataset is based on [1].
 
 The model input data has the form below. Each row corresponds to one product **profile**, a combination of **attributes**.
 
+'''
 import pandas as pd
 filename = 'data/mobile_services_ranking.csv'
 pd.read_csv(filename)
+'''
+
 
 ## Dummy variables
 
